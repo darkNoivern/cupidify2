@@ -8,6 +8,7 @@ import SignUp from './SignUp';
 import Chat from './Chat';
 import Leaderboard from './Leaderboard';
 import { useSelector } from 'react-redux';
+import Error from './Error'
 
 const Index = () => {
 
@@ -29,6 +30,7 @@ const Index = () => {
                     <Route exact path="/leaderboard" element={user === true ? <Leaderboard /> : <SignUp toggleUser={toggleUser} />} />
                     <Route exact path="/signin" element={<SignIn toggleUser={toggleUser} />} />
                     <Route exact path="/signup" element={<SignUp toggleUser={toggleUser} />} />
+                    <Route path="*" element={<Error /> }/>
                 </Routes>
             </Router>
         </>
