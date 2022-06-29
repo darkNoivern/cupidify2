@@ -63,6 +63,12 @@ const Navbar = (props) => {
                                 exact to="/users" >
                                 UserList
                             </NavLink>
+                            <NavLink
+                                activeclassname="active"
+                                className="nav-link ms-1"
+                                exact to="/games" >
+                                Games
+                            </NavLink>
                             {props.user === true ?
                                 <div
                                     activeclassname="active"
