@@ -15,8 +15,11 @@ const LoveCalculator = () => {
     const animate = () => {
         let xi = Math.floor((Math.random()*101));
         if(name==='Mahadev' || cname==='Mahadev'){
-            xi = 0;
+            if(!((name==='Mahadev' && cname==='Shriti') || (cname==='Mahadev' && name==='Shriti'))){
+                xi = 0;
+            }
         }
+
         if(xi<=30){
             setFixColor("text-danger");
         }
