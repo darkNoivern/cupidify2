@@ -15,8 +15,8 @@ const Games = () => {
                 </h1>
             </div>
             <div>
-                <div className="row mx-0 my-5">
-                    <div className="col col-md-4 col-sm-6 col-12 flexy">
+                <div className="row mx-0 my-5 pb-5">
+                    <div className="col col-md-4 col-sm-6 col-12 flexy my-4 my-md-0">
                         <div className="card game-card px-3 pt-4 pb-2">
                             <img src={newimage} className="card-img-top" alt="..." />
                             <div className="card-body d-flex justify-content-between px-0 mt-3">
@@ -25,7 +25,7 @@ const Games = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col col-md-4 col-sm-6 col-12 flexy">
+                    <div className="col col-md-4 col-sm-6 col-12 flexy my-4 my-md-0">
                         <div className="card game-card px-3 pt-4 pb-2">
                             <img src={gameimage} className="card-img-top" alt="..." />
                             <div className="card-body d-flex justify-content-between px-0 mt-3">

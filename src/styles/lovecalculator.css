@@ -2,6 +2,7 @@
 
 .animate{
     font-size: 4rem;
+    line-height: 120%;
     font-family: 'Rubik Moonrocks', cursive !important;
     text-shadow: 5px 5px 3px black;
 }
@@ -21,6 +22,20 @@
 .lcbg{
     min-height: 85vh;
 }
+
 .sp-section{
-    min-height: 50vh;
+    min-height: 35vh;
+}
+
+.game-heading{
+    font-size: 3rem;
+    line-height: 120%;
+}
+
+.dialogue-style{
+    font-size: 2rem;
+}
+
+.style-quote{
+    font-size: 3rem !important;
 }

@@ -5,19 +5,34 @@ import '../styles/lovecalculator.css'
 
 const LoveCalculator = () => {
 
+    const [num, setNum] = useState(0);
     const [name,setName] = useState('');
     const [cname,setCName] = useState('');
+    const [reset, setReset] = useState(true);
     const [unlock, setUnlock] = useState(false);
-    const [num, setNum] = useState(0);
     const [fixColor, setFixColor] = useState("text-valentine");
     
+    const dialogue = [
+    'Padhai likhai krro IAS YAS bano',
+    'Aur Devdas kya haal hai',
+    'Baat Chit kiya krro thoda',
+    'Aur thoda mehnat wehnat crow warna koi aur leke jayega',
+    'Lage raho Majnu Bhai',
+    'Addha rasta toh aa hi gaye baki bhi hojayega',
+    'Your Love needs a little more love',
+    'Srivalli Gana try kiya kya ??',
+    '',
+    '',
+    'Tera toh set hogya , Apne developers ka bhi laga de',]
 
     const animate = () => {
+        setReset(false);
         let xi = Math.floor((Math.random()*101));
         if(name==='Mahadev' || cname==='Mahadev'){
-            if(!((name==='Mahadev' && cname==='Shriti') || (cname==='Mahadev' && name==='Shriti'))){
-                xi = 0;
-            }
+            // if(!((name==='Mahadev' && cname==='Shriti') || (cname==='Mahadev' && name==='Shriti'))){
+            //     xi = 0;
+            // }
+            xi = 0;
         }
 
         if(xi<=30){
@@ -32,12 +47,14 @@ const LoveCalculator = () => {
         else {
             setFixColor("text-success");
             setInterval(2000);
-            party.confetti(document.querySelector('.animate'), {
+            party.confetti(document.querySelector('.partyJS'), {
                 count: party.variation.range(20, 40),
             });
         }
+        
         setNum(xi);
         setUnlock(false);
+
     }
 
     const formatValue = (value) => {
@@ -45,19 +62,26 @@ const LoveCalculator = () => {
     }
 
     const myname = (event) => {
+        setReset(true);
         setUnlock(true);
+        setFixColor("text-valentine");
         setName(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1));
     }
     
     const mycname = (event) => {
+        setReset(true);
         setUnlock(true);
+        setFixColor("text-valentine");
         setCName(event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1));
     }
 
     return (
         <>
             <div className="lcbg">
-                <div className="row mx-0 my-5">
+            <div className='text-valentine game-heading flexy my-5 pb-4'>
+                Love Calculator <i class=" ms-2 heartbeat icon"></i>
+            </div>
+                <div className="row mx-0 mt-5 mb-3">
                     <div className="col col-6 flexy">
                         <input 
                         type="text" 
@@ -75,7 +99,7 @@ const LoveCalculator = () => {
                         placeholder="Enter Crush's name" />
                     </div>
                 </div>
-                <div className="flexy my-5">
+                <div className="flexy mt-3 mb-4">
                 { 
                     ((name!=='') && (cname!=='') && unlock) ? 
                     <button onClick={() => { 
@@ -87,16 +111,24 @@ const LoveCalculator = () => {
                     <button onClick={() => { animate(); }} disabled className="button ui bg-valentine text-white">Click</button>
                 }
                 </div>
-                <div className="row mx-0 my-5 sp-section">
+                <div className="row mx-0 mt-5 sp-section">
                     <div className="col col-12 col-md-4 flexy text-valentine lovername">{(name === '') ? `Your Name` : name}</div>
-                    <div className="col col-12 col-md-4 flexy">
-                        <AnimatedNumber className={`animate ${fixColor}`} value={num} duration={1000} formatValue={formatValue} />
+                        <div className="col col-12 col-md-4 partyJS flexy">
+                    {
+                        ( reset ) ? 
+                            <div className='animate text-valentine'>0 %</div>
+                        :
+                            <AnimatedNumber className={`animate ${fixColor}`} value={num} duration={1000} formatValue={formatValue} />
+                    }
                     </div>
                     <div className="col col-12 col-md-4 flexy text-valentine lovername">{(cname === '') ? `Crush's Name` : cname}</div>
+                </div>
+                <div className={`py-4 flexy dialogue-style ${fixColor}`}>
+                {(reset) ? '' : <><i class="quote style-quote left icon me-3"></i>{`${dialogue[Math.floor(num/10)]}`}<i class="quote style-quote right icon ms-3"></i></>}
                 </div>
             </div>
         </>
     )
 }
 
-export default LoveCalculator
+export default LoveCalculator;
