@@ -21,8 +21,8 @@ const LoveCalculator = () => {
     'Addha rasta toh aa hi gaye baki bhi hojayega',
     'Your Love needs a little more love',
     'Srivalli Gana try kiya kya ??',
-    '',
-    '',
+    'Prompose krdo 😎',
+    'Itna percent toh mere boards mei bhi nhi tha !! Comgrats !!',
     'Tera toh set hogya , Apne developers ka bhi laga de',]
 
     const animate = () => {
